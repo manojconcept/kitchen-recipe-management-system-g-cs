@@ -1,18 +1,14 @@
 import React from 'react';
-import "./style.css";
+import './style.css';
 
 const SkeletonCard = () => {
     return (
         <div className="container loading-skeleton">
-            <div className="row">
-                <div className="col">
-                    <div className="card">
-                        <div className="skeleton-image"></div>
-                        <div className="card-body">
-                            <div className="skeleton-title"></div>
-                            <div className="skeleton-text"></div>
-                        </div>
-                    </div>
+            <div className="card">
+                <div className="skeleton-image"></div>
+                <div className="card-body">
+                    <div className="skeleton-title"></div>
+                    <div className="skeleton-text">Loaing...!</div>
                 </div>
             </div>
         </div>

@@ -1,15 +1,13 @@
 .container {
-  margin-top: 4em;
-  margin-bottom: 4em;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .loading-skeleton {
   background-color: #eee;
   border-radius: 4px;
   padding: 1rem;
-  margin-bottom: 1rem;
-  position: relative;
-  overflow: hidden;
   animation: moving-skeleton 1s linear infinite;
 }
 
