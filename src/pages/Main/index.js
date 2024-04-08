@@ -14,7 +14,6 @@ const Main = () => {
 
     if (!captureData || !captureData.data) {
         return <Skeleton
-        
         numCards={12}
         />
     }
