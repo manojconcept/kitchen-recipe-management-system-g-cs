@@ -3,6 +3,7 @@ import { GobalContext } from "../../contextApi/Datawrapper";
 import { GetRecipeDatas } from "../../config/api/router/recipeApi";
 
 import Grid from "../../components/Grid";
+import Skeleton from "../../components/Loading/Cardskeleton";
 
 const Main = () => {
     const { captureData, setCaptureData } = GobalContext();
@@ -12,7 +13,7 @@ const Main = () => {
     }, [setCaptureData]);
 
     if (!captureData || !captureData.data) {
-        return <h1>loading...</h1>
+        return <Skeleton/>
     }
 
     return (

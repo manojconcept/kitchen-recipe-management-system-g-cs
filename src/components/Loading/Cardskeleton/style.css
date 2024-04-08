@@ -1,0 +1,56 @@
+.container {
+    margin-top: 4em;
+    margin-bottom: 4em;
+  }
+  
+  .loading-skeleton {
+    color: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #eee;
+    border-color: #eee;
+    animation: loading-skeleton 1s infinite alternate;
+    pointer-events: none;
+  }
+  
+  .loading-skeleton::placeholder {
+    color: transparent;
+  }
+  
+  @keyframes loading-skeleton {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .loading-skeleton img {
+    filter: grayscale(100) contrast(0%) brightness(1.8);
+  }
+  
+  .loading-skeleton h1, .loading-skeleton h2, .loading-skeleton h3, .loading-skeleton h4, .loading-skeleton h5, .loading-skeleton h6,
+  .loading-skeleton p, .loading-skeleton li,
+  .loading-skeleton .btn,
+  .loading-skeleton label,
+  .loading-skeleton .form-control {
+    color: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #eee;
+    border-color: #eee;
+  }
+  
+
+  .cards__frame {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  .card__inside {
+    padding: 1rem;
+  }

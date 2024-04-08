@@ -6,7 +6,7 @@ const Grid = ({captureData}) => {
         <div className={style.cards__frame}>
             {
                 captureData.data.map(
-                    (ele)=><div className={style.card__inside}><Card key={ele._id} ele={ele}/></div>
+                    (ele)=><div key={ele._id} className={style.card__inside}><Card key={ele._id} ele={ele}/></div>
                 )
             }
           

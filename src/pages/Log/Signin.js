@@ -1,5 +1,6 @@
 import { useFormik } from "formik"
 import * as yup from "yup"
+import { Link } from "react-router-dom"
 
 const signInSchema = yup.object({
     username: yup.string().max(12, "maxium letter is five char").required('fill the username'),
@@ -23,7 +24,7 @@ function Signin() {
             <div className="container mt-2">
                 <div className="row justify-content-center">
                     <div className="col-md-6 col-lg-5"> {/* Adjust column size based on your preference */}
-                        <div className="card p-4 mt-5" style={{ boxShadow: "10px 10px 5px gray " }}>
+                        <div className="card p-4 mt-6" style={{ boxShadow: "10px 10px 5px gray " }}>
                             <form onSubmit={formik.handleSubmit}>
                                 <div className="form-group">
                                     <label htmlFor="exampleInputUsername">@Username</label>
@@ -41,10 +42,13 @@ function Signin() {
                                         }
                                     </small>
                                 </div>
-                                <div className="d-flex justify-content-end mt-2">
+                                <div className="d-flex justify-content-between mt-2">
+                                    {/* <button type="submit" className="btn btn-dark m-2">Login ll</button> */}
+                                    <p className="m-2">Don't have an account ? <Link to={"/signup"}>Signup</Link></p>
                                     <button type="submit" className="btn btn-dark m-2">Login</button>
                                 </div>
                             </form>
+                            
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const signUpSchema = yup.object({
   firstName: yup.string().required('Please fill your first name'),
@@ -40,7 +41,7 @@ function Signup() {
       <div className="container mt-2">
         <div className="row justify-content-center">
           <div className="col-md-6 col-lg-5">
-            <div className="card p-4 mt-5" style={{ boxShadow: "10px 10px 5px gray " }}>
+            <div className="card p-4 mt-6" style={{ boxShadow: "10px 10px 5px gray " }}>
               <form onSubmit={formik.handleSubmit}>
 
                 {/* First Name and Last Name */}
@@ -170,7 +171,8 @@ function Signup() {
                 </div>
 
                 {/* Submit Button */}
-                <div className="d-flex justify-content-end mt-2">
+                <div className="d-flex justify-content-between mt-2">
+                <p className="m-2">Already have an account ? <Link to={"/signin"}>Login</Link></p>
                   <button type="submit" className="btn btn-dark m-2">
                     Sign Up
                   </button>

@@ -3,17 +3,17 @@ const Footer = () => {
     return (
         <>
             <footer className="text-center text-lg-start bg-body-tertiary text-muted">
-                
+
                 <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
                     <div className="me-5 d-none d-lg-block">
                         <span>Get connected with us on social networks:</span>
                     </div>
                     <div>
-                        <a href="" className="me-4 text-reset">
-                            <i className="bi bi-github"></i>
+                        <a href="https://github.com/manojconcept" target="_blank" rel="noreferrer" className="me-4 text-reset">
+                            <i className="bi bi-github fs-3"></i>
                         </a>
-                        <a href="" className="me-4 text-reset">
-                            <i className="bi bi-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/manojconcept/" target="_blank" rel="noreferrer" className="me-4 text-reset">
+                            <i className="bi bi-linkedin fs-3"></i>
                         </a>
                     </div>
 
@@ -26,7 +26,7 @@ const Footer = () => {
                             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 
                                 <h6 className="text-uppercase fw-bold mb-4">
-                                    <i class="bi bi-egg-fill text-warning"></i>Kitchen Recipe <br />Management System
+                                    <i className="bi bi-egg-fill text-warning"></i>Kitchen Recipe <br />Management System
                                 </h6>
                                 <p>
 
@@ -83,7 +83,7 @@ const Footer = () => {
 
                 <div className="text-center p-4" style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}>
                     © {data.getFullYear()} Copyright:
-                    <a className="text-reset fw-bold" href="">@manojconcept</a>
+                    <a className="text-reset fw-bold" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/manojconcept/">@manojconcept</a>
                 </div>
             </footer>
         </>

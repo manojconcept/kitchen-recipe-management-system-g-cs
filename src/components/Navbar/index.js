@@ -1,14 +1,30 @@
-import { useNavigate,Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Navbar = () => {
-    const navigation = useNavigate("");
-    
-    const handleSingup =()=>navigation("/signup")
+    const [showLoginIcon, setLoginIcon] = useState(true);
+
+    const navigation = useNavigate();
+
+    const handleSignin = () => {
+        setLoginIcon(!showLoginIcon)
+        return navigation("/signin")
+    }
+
+    useEffect(
+        () => {
+
+            return () => {
+                setLoginIcon(false);
+            }
+        }, []
+
+    )
 
     return (
         <nav style={{ position: "sticky", top: "0", zIndex: "9000" }} className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
-                <Link to={"/"} style={{ cursor: "pointer" }} className="navbar-brand" href="#"><i class="bi bi-egg-fill text-warning"></i>Kitchen Recipe <br />Management System</Link>
+                <Link to={"/"} style={{ cursor: "pointer" }} className="navbar-brand" href="#"><i className="bi bi-egg-fill text-warning"></i>Kitchen Recipe <br />Management System</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -47,11 +63,14 @@ const Navbar = () => {
                     <form className="d-flex" role="search">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
 
-                        <i type="button" class="bi bi-search fs-1 m"></i>
+                        <i type="button" className="bi bi-search fs-1 m"></i>
                     </form>
 
                     <div className="d-flex" >
-                        <button onClick={handleSingup} className="btn btn-outline-success mx-2 m-2 " >Sign up</button>
+                        {/* <button onClick={handleSingup} className="btn btn-outline-success mx-2 m-2 " >Sign in</button> */}
+                        {
+                            showLoginIcon ? <i onClick={handleSignin} className="bi bi-box-arrow-in-right fs-1 m-2" type="button"></i> : ""
+                        }
                     </div>
 
                 </div>
