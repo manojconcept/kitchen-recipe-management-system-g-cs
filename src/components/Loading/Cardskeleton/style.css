@@ -1,56 +1,56 @@
 .container {
-    margin-top: 4em;
-    margin-bottom: 4em;
-  }
-  
-  .loading-skeleton {
-    color: transparent;
-    appearance: none;
-    -webkit-appearance: none;
-    background-color: #eee;
-    border-color: #eee;
-    animation: loading-skeleton 1s infinite alternate;
-    pointer-events: none;
-  }
-  
-  .loading-skeleton::placeholder {
-    color: transparent;
-  }
-  
-  @keyframes loading-skeleton {
-    from {
-      opacity: 0.4;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  .loading-skeleton img {
-    filter: grayscale(100) contrast(0%) brightness(1.8);
-  }
-  
-  .loading-skeleton h1, .loading-skeleton h2, .loading-skeleton h3, .loading-skeleton h4, .loading-skeleton h5, .loading-skeleton h6,
-  .loading-skeleton p, .loading-skeleton li,
-  .loading-skeleton .btn,
-  .loading-skeleton label,
-  .loading-skeleton .form-control {
-    color: transparent;
-    appearance: none;
-    -webkit-appearance: none;
-    background-color: #eee;
-    border-color: #eee;
-  }
-  
+  margin-top: 4em;
+  margin-bottom: 4em;
+}
 
-  .cards__frame {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+.loading-skeleton {
+  background-color: #eee;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+  animation: moving-skeleton 1s linear infinite;
+}
+
+@keyframes moving-skeleton {
+  0% {
+      background-position: -100% 0;
   }
-  
-  .card__inside {
-    padding: 1rem;
+  100% {
+      background-position: 200% 0;
   }
+}
+
+.card {
+  width: 100%; 
+  height: 100%;
+}
+
+.skeleton-image {
+  height: 200px;
+  background-color: #ddd; 
+}
+
+.skeleton-title {
+  height: 20px; 
+  background-color: #ddd; 
+  margin-bottom: 8px;
+}
+
+.skeleton-text {
+  height: 60px; 
+  background-color: #ddd; 
+}
+
+.cards__frame {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); 
+}
+
+.card__inside {
+  padding: 1rem;
+}

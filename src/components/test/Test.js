@@ -1,8 +1,10 @@
-
+import Skeleton from "../Loading/Cardskeleton";
 const Test = () =>{
     return (
-        // <Skeleton/>
-        <></>
+        <Skeleton
+        
+        numCards={12}
+        />
     )
 }
 

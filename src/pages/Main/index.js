@@ -13,7 +13,10 @@ const Main = () => {
     }, [setCaptureData]);
 
     if (!captureData || !captureData.data) {
-        return <Skeleton/>
+        return <Skeleton
+        
+        numCards={12}
+        />
     }
 
     return (
