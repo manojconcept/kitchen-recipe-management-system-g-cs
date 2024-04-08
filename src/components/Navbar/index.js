@@ -24,7 +24,8 @@ const Navbar = () => {
     return (
         <nav style={{ position: "sticky", top: "0", zIndex: "9000" }} className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
-                <Link to={"/"} style={{ cursor: "pointer" }} className="navbar-brand" href="#"><i className="bi bi-egg-fill text-warning"></i>Kitchen Recipe <br />Management System</Link>
+                <Link to={"/"} style={{ cursor: "pointer" }} className="navbar-brand" href="#"><i className="bi bi-egg-fill text-warning text-uppercase fw-bold"></i>Kitchen Recipe <br />Management System</Link>
+               
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -57,7 +58,7 @@ const Navbar = () => {
                             </ul>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" path={""}>Inventory</Link>
+                            <Link className="nav-link active" aria-current="page" path={""}><i class="bi bi-stack text-warning"></i> Inventory</Link>
                         </li>
                     </ul>
                     <form className="d-flex" role="search">

@@ -44,11 +44,15 @@ const Card = ({ ele }) => {
                                             <h1 style={{textAlign:"center"}} className="modal-title fs-5" id="exampleModalLabel">Read More</h1>
                                             <button onClick={handleClose} type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div> */}
+                                         <div className="modal-header">
+                                            <h1 className="modal-title fs-5" id="exampleModalLabel">
+                                            <i className="bi bi-egg-fill text-warning"></i>Kitchen Recipe <br />Management System's <span style={{color:"#cdaa35"}}>Golden List <br/></span>
+                                            </h1>
+                                            <button onClick={handleClose} type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
 
                                         <div className="modal-header">
                                             <h1 className="modal-title fs-5" id="exampleModalLabel">Description</h1>
-                                            <button onClick={handleClose} type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
                                         </div>
                                         <div class="modal-header">
                                            <p style={{backgroundColor:"#fbf5aa",padding:"10px",borderRadius:"5px"}}>{ele.description}</p> 
