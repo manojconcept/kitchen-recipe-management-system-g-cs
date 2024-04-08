@@ -12,19 +12,7 @@ const Main = () => {
     }, [setCaptureData]);
 
     if (!captureData || !captureData.data) {
-        return <div className="card mx-auto mb-4 position-relative" style={{ width: "18rem", height: "100%" }}>
-        <div className="skeleton-loading">
-            {/* Placeholder for image */}
-            <div className="skeleton-image"></div>
-            {/* Placeholder for content */}
-            <div className="skeleton-content">
-                <div className="skeleton-title"></div>
-                <div className="skeleton-text"></div>
-                <div className="skeleton-text"></div>
-                <div className="skeleton-text"></div>
-            </div>
-        </div>
-    </div>;
+        return <h1>loading...</h1>
     }
 
     return (

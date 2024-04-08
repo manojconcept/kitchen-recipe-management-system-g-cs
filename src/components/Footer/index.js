@@ -1,4 +1,5 @@
 const Footer = () => {
+    const data = new Date();
     return (
         <>
             <footer className="text-center text-lg-start bg-body-tertiary text-muted">
@@ -81,7 +82,7 @@ const Footer = () => {
                 </section>
 
                 <div className="text-center p-4" style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}>
-                    © 2021 Copyright:
+                    © {data.getFullYear()} Copyright:
                     <a className="text-reset fw-bold" href="">@manojconcept</a>
                 </div>
             </footer>
