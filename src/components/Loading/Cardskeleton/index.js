@@ -8,7 +8,7 @@ const SkeletonCard = () => {
                 <div className="skeleton-image"></div>
                 <div className="card-body">
                     <div className="skeleton-title"></div>
-                    <div className="skeleton-text">Loaing...!</div>
+                    <div className="skeleton-text"></div>
                 </div>
             </div>
         </div>
