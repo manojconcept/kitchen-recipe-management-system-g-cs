@@ -14,12 +14,15 @@ const Navbar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
+
+                        {/* <li className="nav-item">
                             <Link className="nav-link active" aria-current="page" href="#">Home</Link>
                         </li>
+
                         <li className="nav-item">
                             <Link className="nav-link" href="#">Link</Link>
-                        </li>
+                        </li> */}
+
                         <li className="nav-item dropdown">
                             <Link className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Filter
@@ -35,12 +38,10 @@ const Navbar = () => {
                                 <li><Link className="dropdown-item" href="#">Something else here</Link></li>
                                 <li><Link className="dropdown-item" href="#">Something else here</Link></li>
                                 <li><Link className="dropdown-item" href="#">Something else here</Link></li>
-
-
                             </ul>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link disabled" aria-disabled="true">Disabled</Link>
+                            <Link className="nav-link active" aria-current="page" path={""}>Inventory</Link>
                         </li>
                     </ul>
                     <form className="d-flex" role="search">
@@ -50,7 +51,7 @@ const Navbar = () => {
                     </form>
 
                     <div className="d-flex" >
-                        <button onClick={handleSingup} className="btn btn-outline-success " >Sign up</button>
+                        <button onClick={handleSingup} className="btn btn-outline-success mx-2 m-2 " >Sign up</button>
                     </div>
 
                 </div>
