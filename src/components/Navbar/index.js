@@ -58,7 +58,7 @@ const Navbar = () => {
                             </ul>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" path={""}><i class="bi bi-stack text-warning"></i> Inventory</Link>
+                            <Link className="nav-link active" aria-current="page" path={""}><i className="bi bi-stack text-warning"></i> Inventory</Link>
                         </li>
                     </ul>
                     <form className="d-flex" role="search">

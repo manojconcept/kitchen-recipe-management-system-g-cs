@@ -40,41 +40,38 @@ const Card = ({ ele }) => {
                             <div className={`modal fade ${show ? 'show' : ''}`} style={{ display: show ? 'block' : 'none', zIndex: 10000 }}>
                                 <div className="modal-dialog modal-dialog-centered" role="document">
                                     <div className="modal-content">
-                                        {/* <div className="modal-header">
-                                            <h1 style={{textAlign:"center"}} className="modal-title fs-5" id="exampleModalLabel">Read More</h1>
-                                            <button onClick={handleClose} type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div> */}
+    
                                          <div className="modal-header">
                                             <h1 className="modal-title fs-5" id="exampleModalLabel">
                                             <i className="bi bi-egg-fill text-warning"></i>Kitchen Recipe <br />Management System's <span style={{color:"#cdaa35"}}>Golden List <br/></span>
                                             </h1>
-                                            <button onClick={handleClose} type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <button onClick={handleClose} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
 
                                         <div className="modal-header">
                                             <h1 className="modal-title fs-5" id="exampleModalLabel">Description</h1>
                                         </div>
-                                        <div class="modal-header">
+                                        <div className="modal-header">
                                            <p style={{backgroundColor:"#fbf5aa",padding:"10px",borderRadius:"5px"}}>{ele.description}</p> 
                                         </div>
 
                                         <div className="modal-header">
                                             <h1 className="modal-title fs-5" id="exampleModalLabel">Ingredients</h1>
                                         </div>
-                                        <div class="modal-header">
+                                        <div className="modal-header">
                                            <p style={{backgroundColor:"#fbf5aa",padding:"10px",borderRadius:"5px"}}>{ele.ingredients}</p> 
                                         </div>
 
                                         <div className="modal-header">
                                             <h1 className="modal-title fs-5" id="exampleModalLabel">Instructions</h1>
                                         </div>
-                                        <div class="modal-header">
+                                        <div className="modal-header">
                                            <p style={{backgroundColor:"#fbf5aa",padding:"10px",borderRadius:"5px"}}>{ele.instructions}</p> 
 
                                         </div>
                                         <div className="modal-header">
                                             <h1 className="modal-title fs-5" id="exampleModalLabel"><i className="bi bi-stopwatch fs-6"></i> {ele.prep_time} mins</h1>
-                                            <button onClick={handleClose} type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <button onClick={handleClose} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
 
 

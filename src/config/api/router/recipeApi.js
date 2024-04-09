@@ -10,13 +10,13 @@ export const GetRecipeDatas = async (setCaptureData, limit=false) => {
     }
 };
 
-export const GetScrollRecipeDatas = async (setIndex, setHasMore, setItems, limit) => {
+
+export const GetScrollRecipeDatas = async (setItems, limit) => {
     try {
         const response = await client.get(`/recipes?limit=${limit}`);
         setItems((prev) => [...prev, ...response.data.data]);
-        setHasMore(response.data.data.length > 0); 
-        setIndex((prevIndex) => prevIndex + 1);
     } catch (error) {
+        console.error("Error fetching data:", error); 
         throw error;
     }
 };
