@@ -7,7 +7,7 @@ const Main = () => {
 
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [index, setIndex] = useState(2);
+    const [index, setIndex] = useState(1);
 
     const fetchData = useCallback(async () => {
         if (isLoading) return;

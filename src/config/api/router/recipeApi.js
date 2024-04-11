@@ -11,7 +11,7 @@ export const GetRecipeDatas = async (setCaptureData, limit=false) => {
 };
 
 
-export const GetScrollRecipeDatas = async (setItems, limit) => {
+export const GetScrollRecipeDatas = async (setItems, limit=1) => {
     try {
         const response = await client.get(`/recipes?limit=${limit}`);
         setItems((prev) => [...prev, ...response.data.data]);

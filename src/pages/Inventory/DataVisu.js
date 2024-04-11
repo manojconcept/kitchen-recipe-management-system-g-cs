@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 
-const DataVisu = () => {
+const DataVisu = ({Footer}) => {
   const GraphData = () => {
     return {
       cuisine: {
@@ -182,7 +182,8 @@ const DataVisu = () => {
   };
 
   return (
-    <div className="container">
+    <>
+     <div className="container">
       <div className="row">
 
         <div className="col-md-12">
@@ -218,9 +219,10 @@ const DataVisu = () => {
           </div>
         </div>
       </div>
-
-
     </div>
+    {Footer}
+    </>
+   
   );
 };
 

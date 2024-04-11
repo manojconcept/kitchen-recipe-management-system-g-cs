@@ -39,7 +39,7 @@ const Navbar = () => {
                         </li>
                         <li className="nav-item dropdown">
                             <Link className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Filter
+                            <i class="bi bi-funnel-fill text-warning"></i>  Filter
                             </Link>
                             <ul className="dropdown-menu">
                                 <li><button className="dropdown-item" onClick={() => handleDropdownItemClick("Action mm")}>Action mm</button></li>

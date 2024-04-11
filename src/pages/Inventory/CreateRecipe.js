@@ -15,7 +15,7 @@ const recipeSchema = yup.object({
   instructions: yup.string().required('Please provide the instructions'),
 });
 
-function CreateRecipe() {
+function CreateRecipe({ closeModalButton, submitModalButton }) {
 
   const formik = useFormik({
     initialValues: {
@@ -28,8 +28,8 @@ function CreateRecipe() {
       prep_time: 0,
       ingredients: "",
       instructions: "",
-      created:"@manojconcept",
-      saved:""
+      created: "@manojconcept",
+      saved: ""
     },
     validationSchema: recipeSchema,
     onSubmit: (values) => {
@@ -55,6 +55,12 @@ function CreateRecipe() {
         <div className="row justify-content-center">
           <div className="col-md-8 col-lg-6">
             <div className="card p-4 mt-6" style={{ boxShadow: "10px 10px 5px gray " }}>
+              <div className="d-flex justify-content-between">
+                <h6 className="text-uppercase fw-bold mb-4">
+                  <i className="bi bi-egg-fill text-warning"></i>Kitchen Recipe <br />Management System
+                </h6>
+                <i onClick={closeModalButton} type="button" className="bi bi-x fs-1 text-danger"></i>
+              </div>
               <form onSubmit={formik.handleSubmit}>
                 <div className="row">
                   {/* Recipe Name */}
@@ -279,15 +285,15 @@ function CreateRecipe() {
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title">Select Cuisine</h5>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={toggleCuisineModal}>
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                <h1 className="modal-title fs-5" id="exampleModalLabel">
+                   Select Cuisine
+                </h1>
+                <button onClick={toggleCuisineModal} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div className="modal-body">
                 <ul className="list-group">
                   {cuisineList.map((cuisine, index) => (
-                    <li type="button" key={index} style={{backgroundColor:"#fbf5aa"}} className="list-group-item text-center" onClick={() => {
+                    <li type="button" key={index} style={{ backgroundColor: "#fbf5aa" }} className="list-group-item text-center" onClick={() => {
                       formik.setFieldValue("cuisine", cuisine);
                       toggleCuisineModal();
                     }}>{cuisine}</li>
@@ -304,16 +310,19 @@ function CreateRecipe() {
         <div className="modal" tabIndex="-1" role="dialog" style={{ display: "block" }}>
           <div className="modal-dialog" role="document">
             <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Select Course</h5>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={toggleCourseModal}>
-                  <span aria-hidden="true">&times;</span>
-                </button>
+
+            <div className="modal-header">
+                <h1 className="modal-title fs-5" id="exampleModalLabel">
+                Select Course
+                </h1>
+                <button onClick={toggleCourseModal} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
+
+         
               <div className="modal-body">
                 <ul className="list-group">
                   {courseList.map((course, index) => (
-                    <li type="button" style={{backgroundColor:"#fbf5aa"}} key={index} className="list-group-item text-center" onClick={() => {
+                    <li type="button" style={{ backgroundColor: "#fbf5aa" }} key={index} className="list-group-item text-center" onClick={() => {
                       formik.setFieldValue("course", course);
                       toggleCourseModal();
                     }}>{course}</li>
@@ -331,15 +340,15 @@ function CreateRecipe() {
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title">Select Diet</h5>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={toggleDietModal}>
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                <h1 className="modal-title fs-5" id="exampleModalLabel">
+                Select Diet
+                </h1>
+                <button onClick={toggleDietModal} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div className="modal-body">
                 <ul className="list-group">
                   {dietList.map((diet, index) => (
-                    <li type="button" key={index} style={{backgroundColor:"#fbf5aa"}} className="list-group-item text-center" onClick={() => {
+                    <li type="button" key={index} style={{ backgroundColor: "#fbf5aa" }} className="list-group-item text-center" onClick={() => {
                       formik.setFieldValue("diet", diet);
                       toggleDietModal();
                     }}>{diet}</li>
