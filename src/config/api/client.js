@@ -11,9 +11,7 @@ export const client = axios.create({
 
 
 //local
-
 //   export const client = newFunction();
-
 // function newFunction() {
 //   return axios.create({
 //     baseURL: `http://localhost:7000/${ver}`,

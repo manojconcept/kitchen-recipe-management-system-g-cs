@@ -29,17 +29,21 @@ const Navbar = () => {
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
+
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
+
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+
                         <li className="nav-item">
                             <Link className="nav-link active" aria-current="page" to={"/inventory"}><i className="bi bi-stack text-warning"></i> Inventory</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to={"/datavisualization"}><i class="bi bi-pie-chart-fill text-warning"></i> Recipe Data Visualization </Link>
+                            <Link className="nav-link active" aria-current="page" to={"/datavisualization"}><i className="bi bi-pie-chart-fill text-warning"></i> Recipe Data Visualization </Link>
                         </li>
+
                         <li className="nav-item dropdown">
                             <Link className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-funnel-fill text-warning"></i>  Filter
+                            <i className="bi bi-funnel-fill text-warning"></i>  Filter
                             </Link>
                             <ul className="dropdown-menu">
                                 <li><button className="dropdown-item" onClick={() => handleDropdownItemClick("Action mm")}>Action mm</button></li>
@@ -49,12 +53,13 @@ const Navbar = () => {
                                 {/* Add more dropdown items as needed */}
                             </ul>
                         </li>
-                        <li>
+                        
+                        {/* <li>
                             <form className="d-flex" role="search">
                                 <input className="form-control me-2 gap-3" type="search" placeholder="Search" aria-label="Search" />
                                 <i type="button" className="bi bi-search fs-3 m-1"></i>
                             </form>
-                        </li>
+                        </li> */}
                     </ul>
 
 

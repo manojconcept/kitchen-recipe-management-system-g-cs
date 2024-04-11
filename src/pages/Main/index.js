@@ -2,12 +2,13 @@ import React, { useEffect, useState, useCallback } from "react";
 import { GetScrollRecipeDatas } from "../../config/api/router/recipeApi";
 import Grid from "../../components/Grid";
 import Skeleton from "../../components/Loading/Cardskeleton";
+import SecondNav from "../../components/Navbar/SecondNav";
 
 const Main = () => {
 
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [index, setIndex] = useState(1);
+    const [index, setIndex] = useState(2);
 
     const fetchData = useCallback(async () => {
         if (isLoading) return;
@@ -48,6 +49,7 @@ const Main = () => {
 
     return (
         <>
+        <SecondNav/>
             <Grid
                 captureData={items}
                 isLoading={isLoading}
