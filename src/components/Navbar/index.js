@@ -34,6 +34,9 @@ const Navbar = () => {
                         <li className="nav-item">
                             <Link className="nav-link active" aria-current="page" to={"/inventory"}><i className="bi bi-stack text-warning"></i> Inventory</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" aria-current="page" to={"/datavisualization"}><i class="bi bi-pie-chart-fill text-warning"></i> Recipe Data Visualization </Link>
+                        </li>
                         <li className="nav-item dropdown">
                             <Link className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Filter
@@ -46,11 +49,16 @@ const Navbar = () => {
                                 {/* Add more dropdown items as needed */}
                             </ul>
                         </li>
+                        <li>
+                            <form className="d-flex" role="search">
+                                <input className="form-control me-2 gap-3" type="search" placeholder="Search" aria-label="Search" />
+                                <i type="button" className="bi bi-search fs-3 m-1"></i>
+                            </form>
+                        </li>
                     </ul>
-                    <form className="d-flex" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <i type="button" className="bi bi-search fs-1 m"></i>
-                    </form>
+
+
+
                     <div className="d-flex" >
                         <i onClick={handleSignin} className="bi bi-box-arrow-in-right fs-1 m-2" type="button"></i>
                     </div>
