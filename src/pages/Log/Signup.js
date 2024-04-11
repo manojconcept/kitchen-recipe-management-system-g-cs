@@ -11,7 +11,7 @@ const signUpSchema = yup.object({
   confirmPassword: yup.string().max(4, "Maximum length is 4 characters").required("Please fill the password"),
 });
 
-function Signup() {
+function Signup({ Footer }) {
   const [showPassword, setShowPassword] = useState(false);
 
   const formik = useFormik({
@@ -45,7 +45,7 @@ function Signup() {
               <form onSubmit={formik.handleSubmit}>
 
                 {/* First Name and Last Name */}
-                <div className="d-flex">
+                <div className="d-flex gap-1">
                   <div className="form-group flex-grow-1 mr-2">
                     <label htmlFor="exampleInputFirstName">First Name</label>
                     <input
@@ -172,8 +172,8 @@ function Signup() {
 
                 {/* Submit Button */}
                 <div className="d-flex justify-content-between mt-2">
-                <p className="m-2">Already have an account ? <Link to={"/signin"}>Login</Link></p>
-                  <button type="submit" className="btn btn-dark m-2">
+                  <p className="m-2">Already have an account ? <Link to={"/signin"}>Login</Link></p>
+                  <button type="submit" className="btn btn-warning m-2">
                     Sign Up
                   </button>
                 </div>
@@ -183,6 +183,7 @@ function Signup() {
           </div>
         </div>
       </div>
+      {Footer}
     </>
   );
 }

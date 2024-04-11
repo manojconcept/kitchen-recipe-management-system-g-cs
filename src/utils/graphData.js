@@ -1,0 +1,95 @@
+const graphData = () =>{
+    return  {
+            
+        total: {
+            cuisine: {
+                "Afghan": 1,
+                "African": 1,
+                "Andhra": 124,
+                "Arab": 1,
+                "Asian": 9,
+                "Assamese": 26,
+                "Awadhi": 41,
+                "Bengali Recipes": 175,
+                "Bihari": 24,
+                "Chettinad": 72,
+                "Chinese": 2,
+                "Coastal Karnataka": 15,
+                "Continental": 5,
+                "Coorg": 15,
+                "Fusion": 16,
+                "Goan Recipes": 89,
+                "Gujarati Recipes": 127,
+                "Haryana": 3,
+                "Himachal": 19,
+                "Hyderabadi": 32,
+                "Indian": 874,
+                "Indo Chinese": 5,
+                "Jharkhand": 2,
+                "Karnataka": 136,
+                "Kashmiri": 60,
+                "Kerala Recipes": 170,
+                "Kongunadu": 3,
+                "Konkan": 32,
+                "Korean": 1,
+                "Lucknowi": 9,
+                "Maharashtrian Recipes": 154,
+                "Malabar": 11,
+                "Malvani": 9,
+                "Mangalorean": 45,
+                "Middle Eastern": 8,
+                "Mughlai": 31,
+                "Nagaland": 5,
+                "Nepalese": 5,
+                "North East India Recipes": 20,
+                "North Indian Recipes": 858,
+                "North Karnataka": 15,
+                "Oriya Recipes": 31,
+                "Pakistani": 11,
+                "Parsi Recipes": 40,
+                "Punjabi": 87,
+                "Rajasthani": 123,
+                "Sichuan": 1,
+                "Sindhi": 31,
+                "South Indian Recipes": 667,
+                "South Karnataka": 10,
+                "Sri Lankan": 8,
+                "Tamil Nadu": 170,
+                "Thai": 1,
+                "Udupi": 13,
+                "Uttar Pradesh": 11,
+                "Uttarakhand-North Kumaon ": 4
+            },
+            course: {
+                "Appetizer": 91,
+                "Brunch": 1,
+                "Dessert": 392,
+                "Dinner": 488,
+                "Indian Breakfast": 85,
+                "Lunch": 1741,
+                "Main Course": 201,
+                "North Indian Breakfast": 125,
+                "One Pot Dish": 20,
+                "Side Dish": 907,
+                "Snack": 84,
+                "South Indian Breakfast": 281,
+                "World Breakfast": 8
+            },
+            diet: {
+                "Diabetic Friendly": 253,
+                "Eggetarian": 96,
+                "Gluten Free": 38,
+                "High Protein Non Vegetarian": 141,
+                "High Protein Vegetarian": 539,
+                "No Onion No Garlic (Sattvic)": 63,
+                "Non Vegeterian": 252,
+                "Vegan": 27,
+                "Vegetarian": 3015
+            }
+        }
+    }
+       
+    
+}
+
+export default graphData;

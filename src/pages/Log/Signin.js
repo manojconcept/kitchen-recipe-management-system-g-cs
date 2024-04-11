@@ -6,7 +6,7 @@ const signInSchema = yup.object({
     username: yup.string().max(12, "maxium letter is five char").required('fill the username'),
     password: yup.string().max(4, "maximum 4").required("fill the password"),
 })
-function Signin() {
+function Signin({Footer}) {
 
     const formik = useFormik({
         initialValues: {
@@ -45,7 +45,7 @@ function Signin() {
                                 <div className="d-flex justify-content-between mt-2">
                                     {/* <button type="submit" className="btn btn-dark m-2">Login ll</button> */}
                                     <p className="m-2">Don't have an account ? <Link to={"/signup"}>Signup</Link></p>
-                                    <button type="submit" className="btn btn-dark m-2">Login</button>
+                                    <button type="submit" className="btn btn-warning m-2">Login</button>
                                 </div>
                             </form>
                             
@@ -53,6 +53,7 @@ function Signin() {
                     </div>
                 </div>
             </div>
+            {Footer}
 
         </>
     )
