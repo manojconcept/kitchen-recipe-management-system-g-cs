@@ -17,9 +17,7 @@ const Navbar = () => {
         }
     }, []);
 
-    const handleDropdownItemClick = (value) => {
-        console.log("Clicked on dropdown item:", value);
-    }
+  
 
     return (
         <nav style={{ position: "sticky", top: "0", zIndex: "9000" }} className="navbar navbar-expand-lg bg-body-tertiary">
@@ -40,26 +38,6 @@ const Navbar = () => {
                         <li className="nav-item">
                             <Link className="nav-link active" aria-current="page" to={"/datavisualization"}><i className="bi bi-pie-chart-fill text-warning"></i> Recipe Data Visualization </Link>
                         </li>
-
-                        <li className="nav-item dropdown">
-                            <Link className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i className="bi bi-funnel-fill text-warning"></i>  Filter
-                            </Link>
-                            <ul className="dropdown-menu">
-                                <li><button className="dropdown-item" onClick={() => handleDropdownItemClick("Action mm")}>Action mm</button></li>
-                                <li><button className="dropdown-item" onClick={() => handleDropdownItemClick("Another action")}>Another action</button></li>
-                                <li><hr className="dropdown-divider" /></li>
-                                <li><button className="dropdown-item" onClick={() => handleDropdownItemClick("Something else here")}>Something else here</button></li>
-                                {/* Add more dropdown items as needed */}
-                            </ul>
-                        </li>
-                        
-                        {/* <li>
-                            <form className="d-flex" role="search">
-                                <input className="form-control me-2 gap-3" type="search" placeholder="Search" aria-label="Search" />
-                                <i type="button" className="bi bi-search fs-3 m-1"></i>
-                            </form>
-                        </li> */}
                     </ul>
 
 

@@ -15,7 +15,7 @@ const SecondNav = () => {
 
     return (
         <>
-            <nav className="navbar bg-body-tertiary">
+            <nav style={{position: "sticky", top: "85px", zIndex: "9000" }} className="navbar bg-body-tertiary transparent">
                 <div className="container-fluid d-flex gap-2 justify-content-center">
 
                     <div className="nav-item dropdown">
