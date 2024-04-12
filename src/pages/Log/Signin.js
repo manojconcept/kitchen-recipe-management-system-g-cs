@@ -19,8 +19,8 @@ function Signin({Footer}) {
         },
         validationSchema: signInSchema,
         onSubmit: (values) => {
-            console.log(values)
             isLoginUser(values);
+            
         }
     })
 

@@ -172,7 +172,7 @@ function Signup({ Footer }) {
 
                 {/* Submit Button */}
                 <div className="d-flex justify-content-between mt-2">
-                  <p className="m-2">Already have an account ? <Link to={"/signin"}>Login</Link></p>
+                  <p className="m-2">Already have an account ? <Link to={"/"}>Login</Link></p>
                   <button type="submit" className="btn btn-warning m-2">
                     Sign Up
                   </button>
