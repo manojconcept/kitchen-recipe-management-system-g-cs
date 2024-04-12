@@ -1,12 +1,16 @@
 import { useFormik } from "formik"
 import * as yup from "yup"
 import { Link } from "react-router-dom"
+// import { GobalContext } from "../../contextApi/Datawrapper"
+import { isLoginUser } from "../../config/api/router/userApi"
 
 const signInSchema = yup.object({
-    username: yup.string().max(12, "maxium letter is five char").required('fill the username'),
-    password: yup.string().max(4, "maximum 4").required("fill the password"),
-})
+    username: yup.string().min(5, "Username must be at least five characters").required('Please fill in the username'),
+    password: yup.string().min(5, "Password must be at least five characters").required("Please fill in the password"),
+});
+
 function Signin({Footer}) {
+    //  const {storeTokenInSessionStorage} = GobalContext();
 
     const formik = useFormik({
         initialValues: {
@@ -16,6 +20,7 @@ function Signin({Footer}) {
         validationSchema: signInSchema,
         onSubmit: (values) => {
             console.log(values)
+            isLoginUser(values);
         }
     })
 

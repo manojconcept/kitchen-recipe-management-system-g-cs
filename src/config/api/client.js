@@ -1,18 +1,10 @@
-import axios from 'axios'
-
+import axios from 'axios';
 const ver = 'api/v1';
 
-//live
-export const client = axios.create({
-    baseURL: `https://b-kitchen-recipe-management-system.onrender.com/${ver}`,
-    timeout: 0,
-    headers: {}
-  });
 
-
-//local
-//   export const client = newFunction();
-// function newFunction() {
+// //local
+// //   export const client = krmsClienLocalt();
+// function krmsClient() {
 //   return axios.create({
 //     baseURL: `http://localhost:7000/${ver}`,
 //     timeout: 0,
@@ -21,3 +13,32 @@ export const client = axios.create({
 //     }
 //   });
 // }
+
+//live
+// function krmsClient(timeout) {
+//   return axios.create({
+//     baseURL: `https://b-kitchen-recipe-management-system.onrender.com/${ver}`,
+//     timeout: timeout,
+//     headers: {
+//       Authorization: JSON.parse(sessionStorage.getItem('jwtToken')).token || {}
+//     }
+//   });
+  
+// }
+
+function krmsClient(timeout) {
+  let headers = {};
+  const storedToken = sessionStorage.getItem('jwtToken');
+  if (storedToken) {
+    headers.Authorization = JSON.parse(storedToken).token;
+  }
+
+  return axios.create({
+    baseURL: `https://b-kitchen-recipe-management-system.onrender.com/${ver}`,
+    timeout: timeout,
+    headers: headers
+  });
+}
+
+
+export {krmsClient};
