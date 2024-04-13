@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { GetScrollRecipeDatas } from "../../config/api/router/recipeApi";
 import Grid from "../../components/Grid";
 import Skeleton from "../../components/Loading/Cardskeleton";
-import SecondNav from "../../components/Navbar/SecondNav";
+// import SecondNav from "../../components/Navbar/SecondNav";
 
 const Main = () => {
 
@@ -49,7 +49,7 @@ const Main = () => {
 
     return (
         <>
-        <SecondNav/>
+        {/* <SecondNav/> */}
             <Grid
                 captureData={items}
                 isLoading={isLoading}

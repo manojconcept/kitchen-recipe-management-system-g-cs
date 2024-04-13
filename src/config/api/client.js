@@ -1,7 +1,6 @@
 import axios from 'axios';
 const ver = 'api/v1';
 
-
 // //local
 // //   export const client = krmsClienLocalt();
 // function krmsClient() {
@@ -12,18 +11,6 @@ const ver = 'api/v1';
 //       // Authorization: `Bearer ${accessToken}`,
 //     }
 //   });
-// }
-
-//live
-// function krmsClient(timeout) {
-//   return axios.create({
-//     baseURL: `https://b-kitchen-recipe-management-system.onrender.com/${ver}`,
-//     timeout: timeout,
-//     headers: {
-//       Authorization: JSON.parse(sessionStorage.getItem('jwtToken')).token || {}
-//     }
-//   });
-  
 // }
 
 function krmsClient(timeout) {

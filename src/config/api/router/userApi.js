@@ -1,19 +1,34 @@
 import { krmsClient } from "../client";
 
-
 const isLoginUser = async (userData) => {
     try {
         const response = await krmsClient().post(`user/login`, userData);
-        console.log(response);  
         if (response.status === 200) {
-            return sessionStorage.setItem('jwtToken', JSON.stringify(response.data));
+            sessionStorage.setItem('jwtToken', JSON.stringify(response.data));
+            return response
         }
-        return response.data;
+        return response;
     } catch (error) {
         throw error;
     }
 };
 
 
+const isSignupUser = async (userData) => {
+    try {
+        const response = await krmsClient().post(`user/register`, userData);
+        if (response.status === 200) {
+            console.log(response);
+            return response
+        }
+        return response;
+    } catch (error) {
+        throw error;
+    }
+};
 
-export { isLoginUser };
+
+export {
+    isLoginUser,
+    isSignupUser
+};

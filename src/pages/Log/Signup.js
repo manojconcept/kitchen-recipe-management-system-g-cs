@@ -2,13 +2,24 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+
+import { Toastify } from "../../components/HelperComponents/Helper";
+import { isSignupUser } from "../../config/api/router/userApi";
 
 const signUpSchema = yup.object({
   firstName: yup.string().required('Please fill your first name'),
   lastName: yup.string().required('Please fill your last name'),
-  username: yup.string().max(12, "Maximum length is 12 characters").required('Please fill the username'),
-  password: yup.string().max(4, "Maximum length is 4 characters").required("Please fill the password"),
-  confirmPassword: yup.string().max(4, "Maximum length is 4 characters").required("Please fill the password"),
+  username: yup.string().min(5, "Username must be at least five characters").required('Please fill the username'),
+  password: yup
+    .string()
+    .min(8, "Password must be at least eight characters")
+    .matches(
+      /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#]).{8,}$/,
+      "Password must contain at least one numeric digit, one uppercase and one lowercase letter, and one special character"
+    )
+    .required("Please fill the password"),
+  confirmPassword: yup.string().min(4, "Maximum length is 4 characters").required("Please fill the confirm password"),
 });
 
 function Signup({ Footer }) {
@@ -23,12 +34,34 @@ function Signup({ Footer }) {
       confirmPassword: "",
     },
     validationSchema: signUpSchema,
-    onSubmit: (values) => {
+    onSubmit: async (values,{ resetForm }) => {
       if (values.password !== values.confirmPassword) {
-        console.log("Passwords do not match");
+        toast.warning("Password Doesn't Match.");
         return;
       }
-      console.log(values);
+      const userDataValue = {
+        fname: values.firstName,
+        lname: values.lastName,
+        username: values.username,
+        password: values.password
+      }
+      console.log(userDataValue);
+
+      try {
+        // Call the signup API
+        const response = await isSignupUser(userDataValue);
+
+        if (response.status === 200) {
+          toast.success("User created successfully!");
+          resetForm();
+        } else if (response.status === 409) {
+          toast.error("User already exists.");
+        } else {
+          toast.error("Error: Something went wrong.");
+        }
+      } catch (error) {
+        toast.error("User already exists.");
+      }
     },
   });
 
@@ -38,6 +71,7 @@ function Signup({ Footer }) {
 
   return (
     <>
+      <Toastify />
       <div className="container mt-2">
         <div className="row justify-content-center">
           <div className="col-md-6 col-lg-5">
