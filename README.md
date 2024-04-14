@@ -66,4 +66,12 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## images
+![Alt text](readme_img/1.png)
+![Alt text](readme_img/4.png)
+![Alt text](readme_img/2.png)
+![Alt text](readme_img/3.png)
+
+<hr/>
+
 
