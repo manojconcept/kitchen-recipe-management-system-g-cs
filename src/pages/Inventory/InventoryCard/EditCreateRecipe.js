@@ -1,8 +1,13 @@
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useState } from "react";
-import { dropRecipeTypeList } from "../../utils/dropRecipeTypeList";
-import { createRecipe } from "../../config/api/router/recipeApi";
+
+// import { dropRecipeTypeList } from "../../utils/dropRecipeTypeList";
+// import { createRecipe } from "../../config/api/router/recipeApi";
+
+import { dropRecipeTypeList } from "../../../utils/dropRecipeTypeList";
+// import CreateRecipe from "../CreateRecipe";
+import { updatePostKrmsUserRecipes } from "../../../config/api/router/krmsUserRecipes";
 
 const recipeSchema = yup.object({
   name: yup.string().required('Please provide the recipe name'),
@@ -16,26 +21,26 @@ const recipeSchema = yup.object({
   instructions: yup.string().required('Please provide the instructions'),
 });
 
-function CreateRecipe({ closeModalButton, submitModalButton }) {
+function EditCreateRecipe({ closeModalButton, submitModalButton, ele }) {
 
   const formik = useFormik({
     initialValues: {
-      name: "",
-      image_url: "",
-      description: "",
-      cuisine: "",
-      course: "",
-      diet: "",
-      prep_time: 0,
-      ingredients: "",
-      instructions: "",
-      created:JSON.parse(sessionStorage.getItem('jwtToken')).userData.username,
+      name: ele.name,
+      image_url: ele.image_url,
+      description: ele.description,
+      cuisine: ele.cuisine,
+      course: ele.course,
+      diet: ele.diet,
+      prep_time: ele.prep_time,
+      ingredients: ele.ingredients,
+      instructions: ele.instructions,
+      created: JSON.parse(sessionStorage.getItem('jwtToken')).userData.username,
       saved: ""
     },
     validationSchema: recipeSchema,
     onSubmit: async (values) => {
       try {
-        const response = await createRecipe(values) ;
+        const response = await updatePostKrmsUserRecipes(ele.id, values);
         if (response.status === 200) {
           window.location.reload(true);
         }
@@ -44,6 +49,7 @@ function CreateRecipe({ closeModalButton, submitModalButton }) {
       }
     },
   });
+
 
   const [showCuisineModal, setShowCuisineModal] = useState(false);
   const [showCourseModal, setShowCourseModal] = useState(false);
@@ -56,7 +62,6 @@ function CreateRecipe({ closeModalButton, submitModalButton }) {
   const courseList = dropRecipeTypeList().course;
   const cuisineList = dropRecipeTypeList().cuisine;
   const dietList = dropRecipeTypeList().diet;
-
   return (
     <>
       <div className="container mt-2">
@@ -65,7 +70,7 @@ function CreateRecipe({ closeModalButton, submitModalButton }) {
             <div className="card p-4 mt-6" style={{ boxShadow: "10px 10px 5px gray " }}>
               <div className="d-flex justify-content-between">
                 <h6 className="text-uppercase fw-bold mb-4">
-                  <i className="bi bi-egg-fill text-warning"></i>Kitchen Recipe <br />Management System
+                  <i className="bi bi-pencil fs-1 text-warning"></i>Edit List
                 </h6>
                 <i onClick={closeModalButton} type="button" className="bi bi-x fs-1 text-danger"></i>
               </div>
@@ -277,7 +282,7 @@ function CreateRecipe({ closeModalButton, submitModalButton }) {
                 {/* Submit Button */}
                 <div className="d-flex justify-content-end mt-2">
                   <button type="submit" className="btn btn-warning m-2">
-                    Add Recipe
+                    Submit
                   </button>
                 </div>
 
@@ -294,7 +299,7 @@ function CreateRecipe({ closeModalButton, submitModalButton }) {
             <div className="modal-content">
               <div className="modal-header">
                 <h1 className="modal-title fs-5" id="exampleModalLabel">
-                   Select Cuisine
+                  Select Cuisine
                 </h1>
                 <button onClick={toggleCuisineModal} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
@@ -319,14 +324,14 @@ function CreateRecipe({ closeModalButton, submitModalButton }) {
           <div className="modal-dialog" role="document">
             <div className="modal-content">
 
-            <div className="modal-header">
+              <div className="modal-header">
                 <h1 className="modal-title fs-5" id="exampleModalLabel">
-                Select Course
+                  Select Course
                 </h1>
                 <button onClick={toggleCourseModal} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
 
-         
+
               <div className="modal-body">
                 <ul className="list-group">
                   {courseList.map((course, index) => (
@@ -349,7 +354,7 @@ function CreateRecipe({ closeModalButton, submitModalButton }) {
             <div className="modal-content">
               <div className="modal-header">
                 <h1 className="modal-title fs-5" id="exampleModalLabel">
-                Select Diet
+                  Select Diet
                 </h1>
                 <button onClick={toggleDietModal} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
@@ -372,4 +377,4 @@ function CreateRecipe({ closeModalButton, submitModalButton }) {
   );
 }
 
-export default CreateRecipe;
+export default EditCreateRecipe;

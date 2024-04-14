@@ -18,7 +18,6 @@ const isSignupUser = async (userData) => {
     try {
         const response = await krmsClient().post(`user/register`, userData);
         if (response.status === 200) {
-            console.log(response);
             return response
         }
         return response;

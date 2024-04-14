@@ -6,7 +6,6 @@ import { toast } from "react-toastify"
 
 
 import { isLoginUser } from "../../config/api/router/userApi"
-import 'react-toastify/dist/ReactToastify.css';
 
 const signInSchema = yup.object({
     username: yup.string().min(5, "Username must be at least five characters").required('Please fill in the username'),
@@ -60,7 +59,7 @@ function Signin({ Footer }) {
                                     <label htmlFor="exampleInputUsername">@Username</label>
                                     <input type="text" className="form-control" id="username" name="username" value={formik.values.username} onChange={formik.handleChange} onBlur={formik.handleBlur} aria-describedby="usernameHelp" placeholder="Enter Username" required />
                                     <small id="usernameHelp" className="form-text text-muted mx-2">{
-                                        formik.errors.username && formik.touched.username ? formik.errors.username : "eg:manojconcept"
+                                        formik.errors.username && formik.touched.username ? <span className="text-danger">{formik.errors.username}</span> : "eg:manojconcept"
                                     }</small>
                                 </div>
                                 <div className="form-group mt-2">
@@ -68,7 +67,7 @@ function Signin({ Footer }) {
                                     <input type="password" className="form-control" id="password" name="password" value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur} placeholder="Password" aria-describedby="passwordHelp" required />
                                     <small id="passwordHelp" className="form-text text-muted mx-2"> 
                                         {
-                                            formik.errors.password && formik.touched.password ? formik.errors.password : "password: 1234"
+                                            formik.errors.password && formik.touched.password ? <span className="text-danger">{formik.errors.password}</span>: "password: 1234"
                                         }
                                     </small>
                                 </div>
