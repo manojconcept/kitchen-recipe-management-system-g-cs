@@ -42,10 +42,10 @@ function Signup({ Footer }) {
         return;
       }
       const userDataValue = {
-        fname: values.firstName,
-        lname: values.lastName,
-        username: values.username,
-        password: values.password
+        fname: values.firstName.trim(),
+        lname: values.lastName.trim(),
+        username: values.username.trim(),
+        password: values.password.trim(),
       }
       console.log(userDataValue);
       let loadingToastId;

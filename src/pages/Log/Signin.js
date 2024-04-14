@@ -23,10 +23,14 @@ function Signin({ Footer }) {
 
         validationSchema: signInSchema,
         onSubmit: async (values) => {
+            const trimmedValues = {
+                username: values.username.trim(),
+                password: values.password.trim(),
+            };
             let loadingToastId; 
             try {
                 loadingToastId = toast.loading('Logging in...');
-                const response = await isLoginUser(values);
+                const response = await isLoginUser(trimmedValues);
                 if (response.status === 200) {
                     toast.success('Login successful!');
                     navigate("/");
