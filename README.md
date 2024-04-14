@@ -1,4 +1,3 @@
-```bash
 # Kitchen Recipe Management System
 
 Welcome to the Kitchen Recipe Management System project! This is a React-based application that allows users to manage recipes, performing CRUD (Create, Read, Update, Delete) operations.
@@ -68,4 +67,3 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-```
