@@ -21,8 +21,6 @@ const Inventory = ({ Footer }) => {
         postKrmsUserRecipes(setKrmsUserRecipes);
     }, [setKrmsUserRecipes]);
 
-    console.log(krmsUserRecipes)
-
     return (
         <>
             <div className="container">

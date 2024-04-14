@@ -44,6 +44,7 @@ const Main = () => {
     if (isLoading || items.length === 0) {
         return (
             <Skeleton numCards={12} />
+            // <Loader/>
         );
     }
 
