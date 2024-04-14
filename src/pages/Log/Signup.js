@@ -62,7 +62,7 @@ function Signup({ Footer }) {
           toast.error("Error: Something went wrong.");
         }
       } catch (error) {
-        toast.warning('signup failed. . ');
+        toast.warning('User already exists. . ');
         console.error("signup failed. . :", error);
     } finally {
         if (loadingToastId) {
