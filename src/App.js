@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { Routes, Route } from "react-router-dom"
+import Loader from './components/LoaderY/Loader';
 
 const Main = lazy(() => import('./pages/Main'));
 const Signin = lazy(() => import('./pages/Log/Signin'));
@@ -10,12 +11,11 @@ const Test = lazy(() => import('./components/LoaderY/Loader'));
 const DataVisu = lazy(() => import('./pages/Inventory/DataVisu'));
 const Inventory = lazy(() => import("./pages/Inventory/Inventory"));
 const ThirdBar = lazy(() => import("./components/Navbar/ThirdBar"));
-const YelloLoader = lazy(() => import("./components/LoaderY/Loader"));
 
 const App = () => {
   return (
     <>
-      <Suspense fallback={<YelloLoader/>}>
+      <Suspense fallback={<Loader/>}>
         {
           sessionStorage.getItem('jwtToken')? <Navbar />   : <ThirdBar/>
         }
