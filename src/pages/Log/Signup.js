@@ -47,7 +47,6 @@ function Signup({ Footer }) {
         username: values.username.trim(),
         password: values.password.trim(),
       }
-      console.log(userDataValue);
       let loadingToastId;
       try {
         // Call the signup API

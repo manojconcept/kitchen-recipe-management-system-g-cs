@@ -15,7 +15,6 @@ const postKrmsUserRecipes = async (setKrmsUserRecipes) => {
 };
 
 const updatePostKrmsUserRecipes = async (id,updatedValue) => {
-    console.log(id)
     try { 
         const response = await krmsClient().put(`/inventory/${id}`, updatedValue);
         if (response.status === 200) {
