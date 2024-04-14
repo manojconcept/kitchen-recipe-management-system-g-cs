@@ -3,6 +3,7 @@ import * as yup from "yup"
 import { Link, useNavigate } from "react-router-dom"
 import { Toastify } from "../../components/HelperComponents/Helper"
 import { toast } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 
 import { isLoginUser } from "../../config/api/router/userApi"
@@ -34,6 +35,7 @@ function Signin({ Footer }) {
                     toast.error('An error occurred during login');
                     console.error("Login failed. Status code:", response.status);
                 }
+                
             } catch (error) {
                 toast.warning('Login failed. Please check your credentials. ');
                 console.error("Login failed. Please check your credentials. :", error);

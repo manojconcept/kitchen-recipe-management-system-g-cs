@@ -8,6 +8,11 @@ import { useState } from "react";
 import { dropRecipeTypeList } from "../../../utils/dropRecipeTypeList";
 // import CreateRecipe from "../CreateRecipe";
 import { updatePostKrmsUserRecipes } from "../../../config/api/router/krmsUserRecipes";
+import { Toastify } from "../../../components/HelperComponents/Helper";
+import { toast } from "react-toastify";
+
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const recipeSchema = yup.object({
   name: yup.string().required('Please provide the recipe name'),
@@ -39,13 +44,24 @@ function EditCreateRecipe({ closeModalButton, submitModalButton, ele }) {
     },
     validationSchema: recipeSchema,
     onSubmit: async (values) => {
+      let loadingToastId;
       try {
+        loadingToastId = toast.loading('signup in...');
         const response = await updatePostKrmsUserRecipes(ele.id, values);
         if (response.status === 200) {
+          toast.success("Updated...!");
           window.location.reload(true);
         }
+        else {
+          toast.error("Error: Something went wrong.");
+        }
       } catch (error) {
-        throw error;
+        toast.warning('update failed. . ');
+        console.error("update failed. . :", error);
+      } finally {
+        if (loadingToastId) {
+          toast.dismiss(loadingToastId);
+        }
       }
     },
   });
@@ -64,6 +80,7 @@ function EditCreateRecipe({ closeModalButton, submitModalButton, ele }) {
   const dietList = dropRecipeTypeList().diet;
   return (
     <>
+      <Toastify />
       <div className="container mt-2">
         <div className="row justify-content-center">
           <div className="col-md-8 col-lg-6">
@@ -93,7 +110,7 @@ function EditCreateRecipe({ closeModalButton, submitModalButton, ele }) {
                         required
                       />
                       <small id="nameHelp" className="form-text text-muted mx-2">
-                        {formik.errors.name && formik.touched.name ? formik.errors.name : "e.g., Spaghetti Carbonara"}
+                        {formik.errors.name && formik.touched.name ? <span className="text-danger">{formik.errors.name }</span>: "e.g., Spaghetti Carbonara"}
                       </small>
                     </div>
                   </div>
@@ -115,7 +132,7 @@ function EditCreateRecipe({ closeModalButton, submitModalButton, ele }) {
                         required
                       />
                       <small id="imageUrlHelp" className="form-text text-muted mx-2">
-                        {formik.errors.image_url && formik.touched.image_url ? formik.errors.image_url : "e.g., https://example.com/image.jpg"}
+                        {formik.errors.image_url && formik.touched.image_url ? <span className="text-danger">{formik.errors.image_url }</span>: "e.g., https://example.com/image.jpg"}
                       </small>
                     </div>
                   </div>
@@ -136,7 +153,7 @@ function EditCreateRecipe({ closeModalButton, submitModalButton, ele }) {
                         required
                       ></textarea>
                       <small id="descriptionHelp" className="form-text text-muted mx-2">
-                        {formik.errors.description && formik.touched.description ? formik.errors.description : "e.g., A classic Italian pasta dish"}
+                        {formik.errors.description && formik.touched.description ? <span className="text-danger">{formik.errors.description }</span>: "e.g., A classic Italian pasta dish"}
                       </small>
                     </div>
                   </div>
@@ -160,7 +177,7 @@ function EditCreateRecipe({ closeModalButton, submitModalButton, ele }) {
                         <button className="btn btn-warning" type="button" onClick={toggleCuisineModal}>Select</button>
                       </div>
                       <small id="cuisineHelp" className="form-text text-muted mx-2">
-                        {formik.errors.cuisine && formik.touched.cuisine ? formik.errors.cuisine : ""}
+                        {formik.errors.cuisine && formik.touched.cuisine ? <span className="text-danger">{formik.errors.cuisine }</span> : ""}
                       </small>
                     </div>
                   </div>
@@ -184,7 +201,7 @@ function EditCreateRecipe({ closeModalButton, submitModalButton, ele }) {
                         <button className="btn btn-warning" type="button" onClick={toggleCourseModal}>Select</button>
                       </div>
                       <small id="courseHelp" className="form-text text-muted mx-2">
-                        {formik.errors.course && formik.touched.course ? formik.errors.course : ""}
+                        {formik.errors.course && formik.touched.course ? <span className="text-danger">{formik.errors.course }</span> : ""}
                       </small>
                     </div>
                   </div>
@@ -208,7 +225,7 @@ function EditCreateRecipe({ closeModalButton, submitModalButton, ele }) {
                         <button className="btn btn-warning" type="button" onClick={toggleDietModal}>Select</button>
                       </div>
                       <small id="dietHelp" className="form-text text-muted mx-2">
-                        {formik.errors.diet && formik.touched.diet ? formik.errors.diet : ""}
+                        {formik.errors.diet && formik.touched.diet ? <span className="text-danger">{formik.errors.diet }</span> : ""}
                       </small>
                     </div>
                   </div>
@@ -230,7 +247,7 @@ function EditCreateRecipe({ closeModalButton, submitModalButton, ele }) {
                         required
                       />
                       <small id="prepTimeHelp" className="form-text text-muted mx-2">
-                        {formik.errors.prep_time && formik.touched.prep_time ? formik.errors.prep_time : "e.g., 30"}
+                        {formik.errors.prep_time && formik.touched.prep_time ? <span className="text-danger">{formik.errors.prep_time }</span> : "e.g., 30"}
                       </small>
                     </div>
                   </div>
@@ -251,7 +268,7 @@ function EditCreateRecipe({ closeModalButton, submitModalButton, ele }) {
                         required
                       ></textarea>
                       <small id="ingredientsHelp" className="form-text text-muted mx-2">
-                        {formik.errors.ingredients && formik.touched.ingredients ? formik.errors.ingredients : "e.g., Pasta, Eggs, Bacon"}
+                        {formik.errors.ingredients && formik.touched.ingredients ? <span className="text-danger">{formik.errors.ingredients }</span>: "e.g., Pasta, Eggs, Bacon"}
                       </small>
                     </div>
                   </div>
@@ -272,7 +289,7 @@ function EditCreateRecipe({ closeModalButton, submitModalButton, ele }) {
                         required
                       ></textarea>
                       <small id="instructionsHelp" className="form-text text-muted mx-2">
-                        {formik.errors.instructions && formik.touched.instructions ? formik.errors.instructions : "e.g., Cook the pasta according to package instructions..."}
+                        {formik.errors.instructions && formik.touched.instructions ? <span className="text-danger">{formik.errors.instructions }</span> : "e.g., Cook the pasta according to package instructions..."}
                       </small>
                     </div>
                   </div>

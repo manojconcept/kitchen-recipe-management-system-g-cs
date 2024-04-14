@@ -6,6 +6,8 @@ import { toast } from "react-toastify";
 
 import { Toastify } from "../../components/HelperComponents/Helper";
 import { isSignupUser } from "../../config/api/router/userApi";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const signUpSchema = yup.object({
   firstName: yup.string().required('Please fill your first name'),
@@ -46,11 +48,11 @@ function Signup({ Footer }) {
         password: values.password
       }
       console.log(userDataValue);
-
+      let loadingToastId;
       try {
         // Call the signup API
+        loadingToastId = toast.loading('signup in...');
         const response = await isSignupUser(userDataValue);
-
         if (response.status === 200) {
           toast.success("User created successfully!");
           resetForm();
@@ -60,8 +62,13 @@ function Signup({ Footer }) {
           toast.error("Error: Something went wrong.");
         }
       } catch (error) {
-        toast.error("User already exists.");
-      }
+        toast.warning('signup failed. . ');
+        console.error("signup failed. . :", error);
+    } finally {
+        if (loadingToastId) {
+            toast.dismiss(loadingToastId);
+        }
+    }
     },
   });
 

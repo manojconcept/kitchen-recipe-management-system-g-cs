@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import EditCreateRecipe from './EditCreateRecipe';
 import { deletePostKrmsUserRecipes } from '../../../config/api/router/krmsUserRecipes';
 // import "../style.css"
+import { Toastify } from '../../../components/HelperComponents/Helper';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
-const Card = ({ele}) => {
+
+const Card = ({ ele }) => {
     // const [bookMark, setBookMark] = useState(false)
     // ---------------------------------------------------------> modal
     const [show, setShow] = useState(false);
@@ -29,21 +33,30 @@ const Card = ({ele}) => {
     // }
 
     const deleteHandle = async (id) => {
+        let loadingToastId;
         try {
-            const username =  JSON.parse(sessionStorage.getItem('jwtToken')).userData.username
-            const response =  await deletePostKrmsUserRecipes(id,{"username":username})
+            loadingToastId = toast.loading('deleting...');
+            const username = JSON.parse(sessionStorage.getItem('jwtToken')).userData.username
+            const response = await deletePostKrmsUserRecipes(id, { "username": username })
             if (response.status === 200) {
-              window.location.reload(true);
+                toast.success("successfully deleted!");
+                window.location.reload(true);
+            } else {
+                toast.error("Error: Something went wrong.");
             }
-          } catch (error) {
-            throw error;
-          }
-       
-        
+        } catch (error) {
+            toast.warning('operation failed. . ');
+            console.error("operation failed. . :", error);
+        } finally {
+            if (loadingToastId) {
+                toast.dismiss(loadingToastId);
+            }
+        }
     }
 
     return (
         <>
+            <Toastify />
             <div className="card mx-auto mb-4 position-relative" style={{ width: "18rem", height: "100%" }}>
                 <img className="card-img-top" src={ele.image_url} alt={ele.name} style={{ height: "200px", objectFit: "cover" }} />
                 <span className="badge text-bg-warning position-absolute top-0 end-0 m-2"><i className="bi bi-stopwatch fs-6"> Prep Time : {ele.prep_time}</i> mins</span>
@@ -123,7 +136,7 @@ const Card = ({ele}) => {
                                     <EditCreateRecipe
                                         closeModalButton={editHandleClose}
                                         ele={ele}
-                                        // submitModalButton={handleSubmit}
+                                    // submitModalButton={handleSubmit}
                                     />
                                 </div>
                                 {show && <div className="modal-backdrop fade show"></div>}
@@ -131,7 +144,7 @@ const Card = ({ele}) => {
                             </div>
 
                         </>
-                        <i className="bi bi-trash3-fill fs-1" onClick={()=>deleteHandle(ele.id)} type="button"></i>
+                        <i className="bi bi-trash3-fill fs-1" onClick={() => deleteHandle(ele.id)} type="button"></i>
 
                     </div>
                 </div>
