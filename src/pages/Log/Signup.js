@@ -102,7 +102,7 @@ function Signup({ Footer }) {
                       required
                     />
                     <small id="firstNameHelp" className="form-text text-muted mx-2">
-                      {formik.errors.firstName && formik.touched.firstName ? formik.errors.firstName : "e.g., John"}
+                      {formik.errors.firstName && formik.touched.firstName ? <span className="text-danger">{formik.errors.firstName }</span>: "e.g., John"}
                     </small>
                   </div>
                   <div className="form-group flex-grow-1 ml-2">
@@ -120,7 +120,7 @@ function Signup({ Footer }) {
                       required
                     />
                     <small id="lastNameHelp" className="form-text text-muted mx-2">
-                      {formik.errors.lastName && formik.touched.lastName ? formik.errors.lastName : "e.g., Doe"}
+                      {formik.errors.lastName && formik.touched.lastName ? <span className="text-danger">{formik.errors.lastName }</span> : "e.g., Doe"}
                     </small>
                   </div>
                 </div>
@@ -141,7 +141,7 @@ function Signup({ Footer }) {
                     required
                   />
                   <small id="usernameHelp" className="form-text text-muted mx-2">
-                    {formik.errors.username && formik.touched.username ? formik.errors.username : "e.g., manojconcept"}
+                    {formik.errors.username && formik.touched.username ? <span className="text-danger">{formik.errors.username }</span>: "e.g., manojconcept"}
                   </small>
                 </div>
 
@@ -174,7 +174,7 @@ function Signup({ Footer }) {
                     )}
                   </div>
                   <small id="passwordHelp" className="form-text text-muted mx-2">
-                    {formik.errors.password && formik.touched.password ? formik.errors.password : "e.g., 1234"}
+                    {formik.errors.password && formik.touched.password ? <span className="text-danger">{formik.errors.password }</span> : "e.g., 1234"}
                   </small>
                 </div>
 
@@ -207,7 +207,7 @@ function Signup({ Footer }) {
                     )}
                   </div>
                   <small id="confirmPasswordHelp" className="form-text text-muted mx-2">
-                    {formik.errors.confirmPassword && formik.touched.confirmPassword ? formik.errors.confirmPassword : "e.g., 1234"}
+                    {formik.errors.confirmPassword && formik.touched.confirmPassword ? <span className="text-danger">{formik.errors.confirmPassword }</span>: "e.g., 1234"}
                   </small>
                 </div>
 
