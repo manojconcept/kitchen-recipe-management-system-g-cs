@@ -10,7 +10,7 @@ import { isLoginUser } from "../../config/api/router/userApi"
 
 const signInSchema = yup.object({
     username: yup.string().min(5, "Username must be at least five characters").required('Please fill in the username'),
-    password: yup.string().min(5, "Password must be at least five characters").required("Please fill in the password"),
+    password: yup.string().min(8, "Password must be at least eight characters").required("Please fill in the password"),
 });
 
 function Signin({ Footer }) {
