@@ -17,13 +17,13 @@ const signUpSchema = yup.object({
     .string()
     .min(8, "Password must be at least eight characters")
     .matches(
-      /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#]).{8,}$/,
+      /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]).{8,}$/,
       "Password must contain at least one numeric digit, one uppercase and one lowercase letter, and one special character"
     )
     .required("Please fill the password"),
   confirmPassword: yup.string().min(8, "Password must be at least eight characters")
   .matches(
-    /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#]).{8,}$/,
+    /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]).{8,}$/,
     "confirm Password must contain at least one numeric digit, one uppercase and one lowercase letter, and one special character"
   )
   .required("Please fill the confirm password"),
