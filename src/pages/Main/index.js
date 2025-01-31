@@ -2,7 +2,6 @@ import React, { useEffect, useState, useCallback } from "react";
 import { GetScrollRecipeDatas } from "../../config/api/router/recipeApi";
 import Grid from "../../components/Grid";
 import Skeleton from "../../components/Loading/Cardskeleton";
-// import SecondNav from "../../components/Navbar/SecondNav";
 
 const Main = () => {
 
@@ -14,6 +13,7 @@ const Main = () => {
         if (isLoading) return;
         setIsLoading(true);
         await GetScrollRecipeDatas(setItems, index); 
+        console.log(await GetScrollRecipeDatas(setItems, index));
         setIsLoading(false);
         setIndex(prevIndex => prevIndex + 1);
     }, [index, isLoading]);

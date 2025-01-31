@@ -1,10 +1,11 @@
 import { krmsClient } from "../client";
 
-const isLoginUser = async (userData) => {
+const isLoginUser = async (userData,setLogin) => {
     try {
         const response = await krmsClient().post(`user/login`, userData);
         if (response.status === 200) {
             sessionStorage.setItem('jwtToken', JSON.stringify(response.data));
+            setLogin(prev=>({...prev,login:true}));
             return response
         }
         return response;

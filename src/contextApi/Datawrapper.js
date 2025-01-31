@@ -2,25 +2,28 @@ import React, { useContext, createContext, useState} from "react";
 
 const flowData = createContext();
 const ContextWrapper = ({ children }) => {
-    const [captureData, setCaptureData] = useState([])
-    const [krmsUserRecipes, setKrmsUserRecipes] = useState([])
-
-    // const storeTokenInSessionStorage = (token) => sessionStorage.setItem('jwtToken', token);
-    // const getTokenFromSessionStorage = () => sessionStorage.getItem('jwtToken');
-    // const removeTokenFromSessionStorage = () => sessionStorage.removeItem('jwtToken');
-
+    const [captureData, setCaptureData] = useState([]);
+    const [krmsUserRecipes, setKrmsUserRecipes] = useState([]);
+    const [login,setLogin] = useState(
+        {
+            login:false,
+            signup:false
+        }
+    )
+    
     const helperData = {
         captureData,
         setCaptureData,
         setKrmsUserRecipes,
-        krmsUserRecipes
+        krmsUserRecipes,
+        login,
+        setLogin
     }
 
     return (
         <flowData.Provider value={helperData}>
             {children}
         </flowData.Provider>
-
     )
 }
 

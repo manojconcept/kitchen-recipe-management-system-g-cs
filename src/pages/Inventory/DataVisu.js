@@ -90,17 +90,21 @@ const DataVisu = ({Footer}) => {
       }
     };
   };
+  let resetCousineChart;
+  let resetCourseChart;
+  let restetDietChart;
   const CuisineChart = () => {
     const chartRef = useRef(null);
-
+    
     useEffect(() => {
       const data = GraphData().cuisine;
       const labels = Object.keys(data);
       const values = Object.values(data);
-
       const ctx = chartRef.current.getContext('2d');
-
-      new Chart(ctx, {
+      if(resetCousineChart){
+        resetCousineChart.destroy()
+      }
+      resetCousineChart= new Chart(ctx, {
         type: 'bar',
         data: {
           labels: labels,
@@ -119,7 +123,13 @@ const DataVisu = ({Footer}) => {
             }
           }
         }
-      });
+        
+
+      }
+    );
+    return () => {
+      resetCousineChart.destroy();
+    };
     }, []);
 
     return <canvas ref={chartRef}></canvas>;
@@ -134,8 +144,11 @@ const DataVisu = ({Footer}) => {
       const values = Object.values(data);
 
       const ctx = chartRef.current.getContext('2d');
+      if(resetCourseChart){
+        resetCourseChart.destroy();
+      }
 
-      new Chart(ctx, {
+      resetCourseChart = new Chart(ctx, {
         type: 'pie',
         data: {
           labels: labels,
@@ -148,6 +161,9 @@ const DataVisu = ({Footer}) => {
           }]
         }
       });
+      return ()=>{
+        resetCourseChart.destroy();
+      }
     }, []);
 
     return <canvas ref={chartRef}></canvas>;
@@ -162,8 +178,11 @@ const DataVisu = ({Footer}) => {
       const values = Object.values(data);
 
       const ctx = chartRef.current.getContext('2d');
+      if(restetDietChart){
+        restetDietChart.destroy();
+      }
 
-      new Chart(ctx, {
+      restetDietChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
           labels: labels,
@@ -176,6 +195,9 @@ const DataVisu = ({Footer}) => {
           }]
         }
       });
+      return ()=>{
+        restetDietChart.destroy();
+      }
     }, []);
 
     return <canvas ref={chartRef}></canvas>;

@@ -1,16 +1,25 @@
 import React, { useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { GobalContext } from '../../contextApi/Datawrapper';
 
 const Navbar = () => {
     const navigation = useNavigate();
+    const {login,setLogin} = GobalContext();
 
+    console.log(login);
     const handleSignin = () => {
         if (sessionStorage.getItem('jwtToken')) {
             sessionStorage.removeItem('jwtToken');
-            navigation("/");
-            window.location.reload(true)
+            setLogin(prev=>({...prev,login:false}));
+            if(!login){
+                navigation('/');
+            }
         } else {
-            navigation("/");
+            setLogin(prev=>({...prev,login:false}));
+            if(!login){
+                navigation('/');
+            }
+
         }
     }
 
@@ -19,13 +28,8 @@ const Navbar = () => {
             if (!sessionStorage.getItem('jwtToken')) {
                 navigation("/");
             }
-            //analysis clean up
         };
-
-        // Listen for changes to session storage
         window.addEventListener('storage', handleStorageChange);
-
-        // Cleanup function to remove the event listener
         return () => {
             window.removeEventListener('storage', handleStorageChange);
         };

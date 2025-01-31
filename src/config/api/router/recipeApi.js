@@ -13,7 +13,10 @@ const GetRecipeDatas = async (setCaptureData, limit=false) => {
 const GetScrollRecipeDatas = async (setItems, limit=1) => {
     try {
         const response = await krmsClient().get(`/recipes?limit=${limit}`);
-        setItems((prev) => [...prev, ...response.data.data]);
+        console.log(response);
+        if(!response.data.error){
+            setItems((prev) => [...prev, ...response.data.data]);
+        }
     } catch (error) {
         throw error;
     }
