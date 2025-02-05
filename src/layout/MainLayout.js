@@ -4,6 +4,7 @@ import Signin from "../pages/Log/Signin";
 import Navbar from "../components/Navbar";
 import ThirdBar from "../components/Navbar/ThirdBar";
 import Footer from "../components/Footer";
+import Signup from "../pages/Log/Signup";
 
 export default function MainLayout() {
     const { login,setLogin } = GobalContext();

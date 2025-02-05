@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CreateRecipe from "./CreateRecipe";
-import { postKrmsUserRecipes } from "../../config/api/router/krmsUserRecipes";
 import { GobalContext } from "../../contextApi/Datawrapper";
 import Card from "./InventoryCard";
 import "./inventory.css";
@@ -8,6 +7,7 @@ import "./inventory.css";
 const Inventory = ({ Footer }) => {
     const { setKrmsUserRecipes, krmsUserRecipes } = GobalContext();
 
+    
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -16,10 +16,6 @@ const Inventory = ({ Footer }) => {
         event.preventDefault();
         handleClose();
     };
-
-    useEffect(() => {
-        postKrmsUserRecipes(setKrmsUserRecipes);
-    }, [setKrmsUserRecipes]);
 
     return (
         <>
